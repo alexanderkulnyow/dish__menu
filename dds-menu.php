@@ -103,7 +103,7 @@ function menu_meta_box_callback( $post ) {
 	$key_menu_cost   = get_post_meta( $post->ID, 'menu-cost', 1 );
 	$key_menu_weight = get_post_meta( $post->ID, 'menu-weight', 1 );
 	?>
-	<style>
+    <style>
         .queen__meta {
             display: block;
         }
@@ -119,20 +119,20 @@ function menu_meta_box_callback( $post ) {
             width: 200px;
             text-align: left;
         }
-	</style>
-	<div class="queen__meta options_group">
-		<p class="queen__meta-item">
-			<label for="name_menu_cost">Стоимость:</label>
-			<input id="name_menu_cost" type="text" name="name_menu_cost"
-			       value="<?php echo $key_menu_cost; ?>"/>
-		</p>
-		<p class="queen__meta-item">
-			<label for="name_menu_weight">Выход:</label>
-			<input id="name_menu_weight" type="text" name="name_menu_weight"
-			       value="<?php echo $key_menu_weight; ?>"/>
-		</p>
+    </style>
+    <div class="queen__meta options_group">
+        <p class="queen__meta-item">
+            <label for="name_menu_cost">Стоимость:</label>
+            <input id="name_menu_cost" type="text" name="name_menu_cost"
+                   value="<?php echo $key_menu_cost; ?>"/>
+        </p>
+        <p class="queen__meta-item">
+            <label for="name_menu_weight">Выход:</label>
+            <input id="name_menu_weight" type="text" name="name_menu_weight"
+                   value="<?php echo $key_menu_weight; ?>"/>
+        </p>
 
-	</div>
+    </div>
 	<?php
 }
 
@@ -171,10 +171,8 @@ function menu_save_postdata( $post_id ) {
 
 add_filter( 'template_include', 'menu_post_type_templates' );
 function menu_post_type_templates( $template ) {
-	if ( is_archive( 'menu' ) ) {
-		if ( $new_template = plugin_dir_path( __FILE__ ) . 'templates/dish-menu.php' ) {
-			$template = $new_template;
-		}
+	if ( is_category(array('banketnoe-menu', 'menu'))  ) {
+		$template = plugin_dir_path( __FILE__ ) . 'templates/dish-menu.php';
 	}
 
 	return $template;

@@ -37,7 +37,7 @@ get_header();
 
 					<div class="">
                         <button class="buton-galery h1_with_button">
-                            <a href="<?php bloginfo( 'template_url' ); ?>/menu/banket.pdf">Банкетное меню</a>
+                            <a href="<?php echo nl2br( esc_html( get_theme_mod( 'file_choiser' ) ) )?>">Банкетное меню</a>
                         </button>
                     </div>
 
@@ -103,7 +103,7 @@ get_header();
 										$thumb = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
 										?>
                                         <img class="photo-img-top img-fluid embed-responsive-item"
-                                             src="<?php echo $thumb[0] ?>" alt="" title="Клуб танцы"/>
+                                             src="<?php echo $thumb[0] ?>" alt="Ресторан-клуб Танцы" title="<?php the_title_attribute( $args ); ?>"/>
 										<?php
 									} ?>
                                 </div>
